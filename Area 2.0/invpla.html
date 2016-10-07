@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootbusiness | Short description about company">
+    <meta name="author" content="Your name">
+    <title>Area 2.0 | An Invented Place</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap responsive -->
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Font awesome - iconic font with IE7 support --> 
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome-ie7.css" rel="stylesheet">
+    <!-- Bootbusiness theme -->
+    <link href="css/boot-business.css" rel="stylesheet">
+    <!-- My css for personal style -->
+    <link type="text/css" href="css/mystyle.css" rel="stylesheet"/>
+    <!-- Jquary -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <!-- Taffy.js used for create a js database-->
+    <script src="js/taffy.js" type="text/javascript"></script>
+    <!-- Manage all function of admin.html -->
+    <script src="js/admin.js" type="text/javascript"></script>
+    <!-- Import Dijkstra calculator tool -->
+    <script src="js/graph.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <!-- Start: HEADER -->
+    <header>
+      <!-- Start: Navigation wrapper -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="index.html" class="brand brand-bootbus">Area 2.0</a>
+            <!-- Start: Primary navigation -->
+            <div class="nav-collapse collapse">        
+              <ul class="nav pull-right">
+                <li><a href="project.html">The Project</a></li>
+                <li><a href="learnit.html">Tutorial Map</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Try maps<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="cnriit.html">CNR - IIT Map</a></li>
+                    <li><a href="invpla.html">An Invented Place</a></li>
+                    <li><a href="labirint.html">The Labyrinth</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End: Navigation wrapper -->   
+    </header>
+    <!-- End: HEADER -->
+
+    <!-- Start: Main content -->
+    <div class="content">     
+      <div class="container">
+        <!-- Start: Service description -->
+        <article class="article"> 
+          <div class="row bottom-space">
+            <div class="span12">
+              <div class="page-header">
+                <h1>An Invented Place</h1>
+              </div>
+            </div>
+            <div class="center-align">
+              <div class="span4">
+                <div id="adminDiv">
+                  <div id="SelInterface">
+                    <h3>Select the interface that you want to use</h3>
+                    <hr/>
+                    <h4><small>Through the admin interface menu you can add more information to the map about the points to reach, turns and junctions (create nodes and links).</small></h4>
+                    <p>
+                      <input id="admininterface" class="btn btn-large btn-block btn-primary" type="button" value="Create paths (Admin Interface)" />
+                    </p>
+                    <h4><small>Through the user interface menu you can set a starting and a final point of your destination, and get the best route.</small></h4>
+                    <p>
+                      <input id="userinterface" class="btn btn-large btn-block btn-primary" type="button" value="Get indications (User Interface)" />
+                    </p>
+                    <hr>
+                    <h4><small>Through the button below you go back to the home page.</small></h4>
+                    <p>
+                      <a href="index.html" class="btn btn-large btn-block btn-primary">Back to Home Page</a>
+                    </p>
+                  </div>
+                  <div id="create">
+                    <h3>Create paths (Admin Interface)</h3>
+                    <hr/>
+                    <h4><small>By clicking the button below you will enter the menu that allows you creating nodes.</small></h4>
+                    <p>
+                      <input id="node" class="btn btn-large btn-block btn-primary" type="button" value="Manage nodes" />
+                    </p>
+                    <h4><small>By clicking the button below you will enter the menu that allows you creating links.</small></h4>
+                    <p>
+                      <input id="arch" class="btn btn-large btn-block btn-primary" type="button" value="Manage links" />
+                    </p>
+                    <h4><small>By clicking the button below you will be taken back to interface option menu.</small></h4>
+                    <p>
+                      <input id="choiseinterface" class="btn btn-large btn-block btn-primary" type="button" value="Back" />
+                    </p>
+                  </div>
+                  <div id="menagenode">
+                    <h3>Manage Nodes</h3>
+                    <hr>
+                    <h4><small>For creating a node click the button below. The nodes represent all the created points in the structure where is a change of direction.</small></h4>
+                    <p>
+                      <input id="newnode" class="btn btn-large btn-block btn-primary" type="button" value="Create new node" />
+                    </p>
+                    <h4><small>Nodes badly placed can be changed by clicking the button below.</small></h4>
+                    <p>
+                      <input id="modnode" class="btn btn-large btn-block btn-primary" type="button" value="Modify the node" />
+                    </p>
+                    <h4><small>By clicking the button below you will be taken back to admin interface.</small></h4>
+                    <p>
+                      <input id="BackToGraphN" class="btn btn-large btn-block btn-primary" type="button" value="Back" />
+                    </p>
+                  </div>
+                  <div id="createnode">
+                    <h3>Create new node</h3>
+                    <hr>
+                    <h4><small>Drag the red node in a position desired and then save it.</small></h4>
+                    <form id="newNodeForm" name="newNodeForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="assignedId" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord X:</b></label>
+                        <div class="controls">
+                          <input id="x" type="text" name="cordx" maxlength="4" value="50" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord Y:</b></label>
+                        <div class="controls">
+                          <input id="y" type="text" name="cordy" maxlength="4" value="40" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Label name:</b></label>
+                        <div class="controls">
+                          <input id="label" type="text" name="label" maxlength="5" value="XXXXX"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="note" name="note" rows="3" cols="50" maxlength="200" ></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="savenode" class="btn" type="button" value="Save node" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBackNewNode" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="modifynode">
+                    <h3>Modify the node</h3>
+                    <hr>
+                    <h4><small>First select the node wanted and then you can modify it.</small></h4>
+                    <form id="modNodeForm" name="modNodeForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="assignedIdOnMod" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord X:</b></label>
+                        <div class="controls">
+                          <input id="xOnMod" type="text" name="cordx" maxlength="4" value="" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord Y:</b></label>
+                        <div class="controls">
+                          <input id="yOnMod" type="text" name="cordy" maxlength="4" value="" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Label name:</b></label>
+                        <div class="controls">
+                          <input id="labelOnMod" type="text" name="label" maxlength="5" value=""/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="noteOnMod" name="note" rows="3" cols="50" maxlength="200" ></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="modifySelNode" class="btn" type="button" value="Save node" />
+                        <input id="deleteSelNode" class="btn" type="button" value="Delete node" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBack" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="menagearch">
+                    <h3>Manage Links</h3>
+                    <hr>
+                    <h4><small>For creating a link click the button below. The links connect all the nodes created in the structure.</small></h4>
+                    <p>
+                      <input id="newarch" class="btn btn-large btn-block btn-primary" type="button" value="Create new link" />
+                    </p>
+                    <h4><small>The link of badly connected nodes can be removed by clicking the button below.</small></h4>
+                    <p>
+                      <input id="modarch" class="btn btn-large btn-block btn-primary" type="button" value="Delete a link" />
+                    </p>
+                    <h4><small>By clicking the button below you will be taken back to admin interface.</small></h4>
+                    <p>
+                      <input id="BackToGraphA" class="btn btn-large btn-block btn-primary" type="button" value="Back" />
+                    </p>
+                  </div>
+                  <div id="addingArch">
+                    <h3>Create new link</h3>
+                    <hr>
+                    <h4>
+                      <small>
+                        Pressing the "Select the A node" and "Select the B node" buttons allows selecting the nodes you want to connect.  
+                        After selected the two nodes you have to press the third "?" button for calculating the length of the path between these two nodes.
+                        Only when you have done these actions you'll be able to save the link.
+                      </small>
+                    </h4>
+                    <form id="newArchForm" name="newArchForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="archId" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node A: </b></label>
+                        <div class="controls">
+                            <input id="startnode" type="text" name="nodea" maxlength="5" value="No node" readonly />
+                            <input id="selStaNode" type="button" name="selectionA" value="Select the A node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node B: </b></label>
+                        <div class="controls">
+                          <input id="endnode" type="text" name="nodeb" maxlength="5" value="No node" readonly />
+                          <input id="selEndNode" type="button" name="selectionB" value="Select the B node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Length:</b></label>
+                        <div class="controls">
+                          <input id="length" type="text" name="length" maxlength="8" value="Select connected nodes" readonly/>
+                          <input id="calLength" type="button" name="selectionB" value="Calculate length"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="notearchs" name="note" rows="3" cols="50" maxlength="200" ></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="savearch" class="btn" type="button" value="Save Link" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBackNewArch" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="modifyarchs">
+                    <h3>Delete a link</h3>
+                    <hr>
+                    <h4><small>First, click the link you want to delete and after it turned red you can remove it easily.</small></h4>
+                    <form id="modArchForm" name="modArchForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="archIdOM" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node A: </b></label>
+                        <div class="controls">
+                            <input id="startnodeOM" type="text" name="nodea" maxlength="5" value="No node" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node B: </b></label>
+                        <div class="controls">
+                          <input id="endnodeOM" type="text" name="nodeb" maxlength="5" value="No node" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Length:</b></label>
+                        <div class="controls">
+                          <input id="lengthOM" type="text" name="length" maxlength="8" value="Select connected nodes" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="notearchsOM" name="note" rows="3" cols="50" maxlength="200" readonly></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="deleteSelArch" class="btn" type="button" value="Delete Link" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBackArch" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="UsingMapForm">
+                    <h3>Get indications (User Interface)</h3>
+                    </hr>
+                    <h4>
+                      <small>
+                        Pressing the "Select the starting node" button allows choosing your current location and "Select the ending node" allows choosing your final destination.
+                      </small>
+                    </h4>
+                    <h4>
+                      <small>
+                        After that you have to click on "Calculate Path" button for having the total distance and the path that you have to follow.
+                      </small>
+                    </h4>
+                    <form id="usingMap" name="usingMap" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Start Node: </b></label>
+                        <div class="controls">
+                            <input id="USERstartnode" type="text" name="nodea" maxlength="5" value="No node" readonly="true" />
+                            <input id="USERselStaNode" type="button" name="selectionA" value="Select the starting node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>End Node: </b></label>
+                        <div class="controls">
+                          <input id="USERendnode" type="text" name="nodeb" maxlength="5" value="No node" readonly="true" />
+                          <input id="USERselEndNode" type="button" name="selectionB" value="Select the ending node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Length:</b></label>
+                        <div class="controls">
+                          <input id="USERlength" type="text" name="length" maxlength="8" value="Select connected nodes" readonly="true"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="calculatePath" class="btn" type="button" value="Calculate Path" />
+                      </div>
+                      <div class="control-group">
+                        <input id="reset" class="btn" type="button" value="Reset" />
+                        <input id="goBackMain" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="span8">
+                <svg
+                   xmlns:dc="http://purl.org/dc/elements/1.1/"
+                   xmlns:cc="http://creativecommons.org/ns#"
+                   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                   xmlns:svg="http://www.w3.org/2000/svg"
+                   xmlns="http://www.w3.org/2000/svg"
+                   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                   width="502.05258"
+                   height="451.92197"
+                   id="svg3395"
+                   version="1.1" >
+                  <defs
+                     id="defs3397" />
+                  <sodipodi:namedview
+                     id="base"
+                     pagecolor="#ffffff"
+                     bordercolor="#ffffff"
+                     borderopacity="0.0"
+                     inkscape:pageopacity="0.0"
+                     inkscape:pageshadow="0"
+                     inkscape:zoom="0.73554687"
+                     inkscape:cx="351.02629"
+                     inkscape:cy="249.0603"
+                     inkscape:document-units="px"
+                     inkscape:current-layer="layer1"
+                     showgrid="false"
+                     inkscape:window-width="1366"
+                     inkscape:window-height="705"
+                     inkscape:window-x="-8"
+                     inkscape:window-y="-8"
+                     inkscape:window-maximized="1"
+                     inkscape:snap-page="false"
+                     inkscape:snap-to-guides="false"
+                     inkscape:snap-grids="false"
+                     inkscape:snap-nodes="false"
+                     inkscape:snap-global="false"
+                     fit-margin-top="1"
+                     fit-margin-left="1"
+                     fit-margin-right="1"
+                     fit-margin-bottom="1" />
+                  <metadata
+                     id="metadata3400">
+                    <rdf:RDF>
+                      <cc:Work
+                         rdf:about="">
+                        <dc:format>image/svg+xml</dc:format>
+                        <dc:type
+                           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                        <dc:title></dc:title>
+                      </cc:Work>
+                    </rdf:RDF>
+                  </metadata>
+                  <g
+                     inkscape:label="Layer 1"
+                     inkscape:groupmode="layer"
+                     id="layer1"
+                     transform="translate(1.0262919,-601.40703)">
+                    <g
+                       id="layer1-94"
+                       inkscape:label="Livello 1"
+                       transform="matrix(0.99999611,0,0,0.99995108,-15.279849,591.95819)">
+                      <g
+                         transform="matrix(0.62375243,0,0,0.57970814,-15.407714,-121.16262)"
+                         id="g3130">
+                        <g
+                           inkscape:label="Livello 1"
+                           id="layer1-9" />
+                        <g
+                           id="layer2"
+                           inkscape:label="Porte e scale">
+                          <g
+                             id="g8087">
+                            <g
+                               id="g7916">
+                              <g
+                                 id="g7692">
+                                <g
+                                   id="g7594">
+                                  <g
+                                     id="g7477">
+                                    <g
+                                       id="g7388">
+                                      <g
+                                         id="g7299">
+                                        <g
+                                           id="g7214">
+                                          <g
+                                             id="g7131">
+                                            <g
+                                               id="g7050">
+                                              <g
+                                                 id="g6971">
+                                                <g
+                                                   id="g6894">
+                                                <g
+                                                   id="g6819">
+                                                <g
+                                                   id="g6746">
+                                                <g
+                                                   id="g6675">
+                                                <g
+                                                   id="g6606">
+                                                <g
+                                                   id="g6533">
+                                                <g
+                                                   id="g6458">
+                                                <g
+                                                   id="g6396">
+                                                <g
+                                                   id="g6336">
+                                                <g
+                                                   id="g6278">
+                                                <g
+                                                   id="g6222">
+                                                <g
+                                                   id="g6168">
+                                                <g
+                                                   id="g6116">
+                                                <g
+                                                   id="g6066">
+                                                <g
+                                                   id="g6018">
+                                                <g
+                                                   id="g5972">
+                                                <g
+                                                   id="g5928">
+                                                <g
+                                                   id="g5886">
+                                                <g
+                                                   id="g5846">
+                                                <g
+                                                   id="g5808">
+                                                <g
+                                                   id="g5772">
+                                                <g
+                                                   id="g5738">
+                                                <g
+                                                   id="g5706">
+                                                <g
+                                                   id="g5676">
+                                                <g
+                                                   id="g5648">
+                                                <g
+                                                   id="g5622">
+                                                <g
+                                                   id="g5598">
+                                                <g
+                                                   id="g5576">
+                                                <g
+                                                   id="g5518">
+                                                <g
+                                                   id="g5499">
+                                                <g
+                                                   id="g5480">
+                                                <g
+                                                   id="g5467"
+                                                   transform="matrix(0.99875005,0,0,0.99935488,0.56248851,0.64631804)">
+                                                <rect
+                                                   y="227.36218"
+                                                   x="350"
+                                                   height="750"
+                                                   width="200"
+                                                   id="rect3036"
+                                                   style="fill:#999999" />
+                                                <rect
+                                                   y="327.36221"
+                                                   x="150"
+                                                   height="675"
+                                                   width="600"
+                                                   id="rect3040"
+                                                   style="fill:#999999" />
+                                                <path
+                                                   id="rect3042"
+                                                   d="m 50,327.36218 0,400 800,0 0,-400 -800,0 z"
+                                                   style="fill:#999999"
+                                                   inkscape:connector-curvature="0" />
+                                                <g
+                                                   transform="matrix(0.49129674,0,0,0.49689822,-47.276755,527.6318)"
+                                                   id="g3048">
+                                                <path
+                                                   style="fill:#999999"
+                                                   d="m 198,-135.5625 0,739.40625 529.3125,0 0,-739.40625 -529.3125,0 z"
+                                                   id="rect3045"
+                                                   inkscape:connector-curvature="0" />
+                                                </g>
+                                                <rect
+                                                   y="227.36218"
+                                                   x="350"
+                                                   height="25"
+                                                   width="199"
+                                                   id="rect3022"
+                                                   style="fill:#803300;fill-opacity:1;stroke:#000000;stroke-width:1.6645658;stroke-opacity:1" />
+                                                <rect
+                                                   y="227.36218"
+                                                   x="350"
+                                                   height="125"
+                                                   width="25"
+                                                   id="rect3024"
+                                                   style="fill:#803300;fill-opacity:1;stroke:#000000;stroke-width:1.6645658;stroke-opacity:1" />
+                                                <rect
+                                                   y="327.36218"
+                                                   x="50"
+                                                   height="25"
+                                                   width="425"
+                                                   id="rect3028"
+                                                   style="fill:#803300;fill-opacity:1;stroke:#000000;stroke-width:1.6645658;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                <rect
+                                                   y="227.86218"
+                                                   x="524.5"
+                                                   height="125"
+                                                   width="25"
+                                                   id="rect5457"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.6645658;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5478"
+                                                   width="324.59381"
+                                                   height="24.983881"
+                                                   x="524.90613"
+                                                   y="327.2977" />
+                                                </g>
+                                                <rect
+                                                   y="402.86212"
+                                                   x="825.5"
+                                                   height="324"
+                                                   width="24"
+                                                   id="rect5497"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298723;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5514"
+                                                   width="124.00001"
+                                                   height="24"
+                                                   x="725.00006"
+                                                   y="703.36218" />
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298723;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5516"
+                                                   width="24"
+                                                   height="299"
+                                                   x="725.5"
+                                                   y="703.36188" />
+                                                </g>
+                                                <rect
+                                                   y="976.86218"
+                                                   x="150"
+                                                   height="25"
+                                                   width="600"
+                                                   id="rect5536"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5596"
+                                                   width="25"
+                                                   height="200"
+                                                   x="150"
+                                                   y="801.86212" />
+                                                </g>
+                                                <rect
+                                                   y="802.36218"
+                                                   x="50"
+                                                   height="25"
+                                                   width="125"
+                                                   id="rect5620"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298807;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5646"
+                                                   width="25"
+                                                   height="425"
+                                                   x="50"
+                                                   y="402.36218" />
+                                                </g>
+                                                <rect
+                                                   y="402.46219"
+                                                   x="50"
+                                                   height="25"
+                                                   width="125"
+                                                   id="rect5674"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5704"
+                                                   width="25"
+                                                   height="75"
+                                                   x="150"
+                                                   y="402.36218" />
+                                                </g>
+                                                <rect
+                                                   y="527.36218"
+                                                   x="150"
+                                                   height="75"
+                                                   width="25"
+                                                   id="rect5736"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5770"
+                                                   width="125"
+                                                   height="25"
+                                                   x="50"
+                                                   y="577.36218" />
+                                                </g>
+                                                <rect
+                                                   y="577.36218"
+                                                   x="150"
+                                                   height="175"
+                                                   width="25"
+                                                   id="rect5806"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5844"
+                                                   width="25"
+                                                   height="75"
+                                                   x="225.5"
+                                                   y="401.86218" />
+                                                </g>
+                                                <rect
+                                                   y="527.36218"
+                                                   x="225"
+                                                   height="75"
+                                                   width="25"
+                                                   id="rect5884"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect5926"
+                                                   width="125"
+                                                   height="25"
+                                                   x="225"
+                                                   y="577.36218" />
+                                                </g>
+                                                <rect
+                                                   y="402.36218"
+                                                   x="325"
+                                                   height="200"
+                                                   width="25"
+                                                   id="rect5970"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6016"
+                                                   width="125"
+                                                   height="25"
+                                                   x="225"
+                                                   y="402.36218" />
+                                                </g>
+                                                <rect
+                                                   y="402.36218"
+                                                   x="350"
+                                                   height="200"
+                                                   width="25"
+                                                   id="rect6064"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6114"
+                                                   width="125"
+                                                   height="25"
+                                                   x="350"
+                                                   y="402.36218" />
+                                                </g>
+                                                <rect
+                                                   y="402.36218"
+                                                   x="450"
+                                                   height="75"
+                                                   width="25"
+                                                   id="rect6166"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6220"
+                                                   width="25"
+                                                   height="75"
+                                                   x="450"
+                                                   y="527.36218" />
+                                                </g>
+                                                <rect
+                                                   y="577.36218"
+                                                   x="350"
+                                                   height="25"
+                                                   width="125"
+                                                   id="rect6276"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6334"
+                                                   width="25"
+                                                   height="175"
+                                                   x="225"
+                                                   y="577.36218" />
+                                                </g>
+                                                <rect
+                                                   y="727.36218"
+                                                   x="225"
+                                                   height="25"
+                                                   width="100"
+                                                   id="rect6394"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6456"
+                                                   width="100"
+                                                   height="25"
+                                                   x="225"
+                                                   y="802.36218" />
+                                                </g>
+                                                <rect
+                                                   y="802.36218"
+                                                   x="225"
+                                                   height="125"
+                                                   width="25"
+                                                   id="rect6520"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6520-7"
+                                                   width="25"
+                                                   height="125"
+                                                   x="450.5"
+                                                   y="801.86218" />
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6604"
+                                                   width="250"
+                                                   height="25"
+                                                   x="225"
+                                                   y="902.36218" />
+                                                </g>
+                                                <rect
+                                                   y="802.36218"
+                                                   x="375"
+                                                   height="25"
+                                                   width="100"
+                                                   id="rect6673"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6744"
+                                                   width="100"
+                                                   height="25"
+                                                   x="375"
+                                                   y="727.36218" />
+                                                </g>
+                                                <rect
+                                                   y="577.36218"
+                                                   x="450"
+                                                   height="175"
+                                                   width="25"
+                                                   id="rect6817"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                                </g>
+                                                <rect
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                   id="rect6892"
+                                                   width="150"
+                                                   height="25"
+                                                   x="525"
+                                                   y="802.36218" />
+                                                </g>
+                                                <rect
+                                                   y="802.36218"
+                                                   x="525"
+                                                   height="125"
+                                                   width="25"
+                                                   id="rect6969"
+                                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                              </g>
+                                              <rect
+                                                 style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                                 id="rect7048"
+                                                 width="50"
+                                                 height="25"
+                                                 x="525"
+                                                 y="902.36218" />
+                                            </g>
+                                            <rect
+                                               y="802.36218"
+                                               x="650"
+                                               height="125"
+                                               width="25"
+                                               id="rect7129"
+                                               style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                          </g>
+                                          <rect
+                                             style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                             id="rect7212"
+                                             width="50"
+                                             height="25"
+                                             x="625"
+                                             y="902.36218" />
+                                        </g>
+                                        <rect
+                                           y="727.36218"
+                                           x="525"
+                                           height="25"
+                                           width="150"
+                                           id="rect7297"
+                                           style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                      </g>
+                                      <rect
+                                         style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                         id="rect7386"
+                                         width="25"
+                                         height="125"
+                                         x="650"
+                                         y="627.36218" />
+                                    </g>
+                                    <rect
+                                       y="627.36218"
+                                       x="650"
+                                       height="25"
+                                       width="200"
+                                       id="rect7475"
+                                       style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                  </g>
+                                  <rect
+                                     style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                     id="rect7568"
+                                     width="125"
+                                     height="25"
+                                     x="525.5"
+                                     y="551.86218" />
+                                  <rect
+                                     style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                     id="rect7588"
+                                     width="25"
+                                     height="225"
+                                     x="525"
+                                     y="527.36218" />
+                                  <rect
+                                     style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                     id="rect7590"
+                                     width="125"
+                                     height="25"
+                                     x="650"
+                                     y="552.36218" />
+                                  <rect
+                                     style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+                                     id="rect7592"
+                                     width="25"
+                                     height="75"
+                                     x="525"
+                                     y="402.36218" />
+                                </g>
+                                <rect
+                                   y="402.36218"
+                                   x="750"
+                                   height="175"
+                                   width="25"
+                                   id="rect7688"
+                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                                <rect
+                                   y="402.36218"
+                                   x="525"
+                                   height="25"
+                                   width="250"
+                                   id="rect7690"
+                                   style="fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.66298819;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+                              </g>
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:evenodd"
+                                 id="rect7792"
+                                 width="5"
+                                 height="50"
+                                 x="50"
+                                 y="352.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7796"
+                                 width="50"
+                                 height="5"
+                                 x="475"
+                                 y="347.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7798"
+                                 width="5"
+                                 height="50"
+                                 x="845"
+                                 y="352.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7800"
+                                 width="50"
+                                 height="5"
+                                 x="775"
+                                 y="572.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7802"
+                                 width="5"
+                                 height="50"
+                                 x="150"
+                                 y="477.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7804"
+                                 width="5"
+                                 height="50"
+                                 x="245"
+                                 y="477.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7806"
+                                 width="5"
+                                 height="50"
+                                 x="150"
+                                 y="752.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7808"
+                                 width="50"
+                                 height="5"
+                                 x="325"
+                                 y="822.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7810"
+                                 width="50"
+                                 height="5"
+                                 x="325"
+                                 y="727.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7812"
+                                 width="50"
+                                 height="5"
+                                 x="575"
+                                 y="902.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7816"
+                                 width="5"
+                                 height="50"
+                                 x="450"
+                                 y="477.36218" />
+                              <rect
+                                 style="fill:#6f6fff;fill-opacity:1;fill-rule:nonzero"
+                                 id="rect7818"
+                                 width="5"
+                                 height="50"
+                                 x="545"
+                                 y="477.36218" />
+                            </g>
+                            <rect
+                               id="rect8069"
+                               y="652.36218"
+                               x="675"
+                               height="100"
+                               width="50"
+                               style="fill:#f6ff6f;fill-opacity:1;stroke:none" />
+                            <rect
+                               y="652.36218"
+                               x="675"
+                               height="50"
+                               width="150"
+                               id="rect8085"
+                               style="fill:#f6ff6f;fill-opacity:1;fill-rule:nonzero" />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- End: Service description -->
+      </div>
+    </div>
+    </div>
+    <!-- End: Main content -->
+
+    <!-- Start: FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <h4><i class="icon-beaker icon-white"></i> About</h4>
+            <nav>
+              <ul class="quick-links">
+                <li><a href="project.html">The Project</a></li>
+              </ul>
+            </nav>          
+          </div>
+          <div class="span3">
+            <h4><i class="icon-thumbs-up icon-white"></i> Support</h4>
+            <nav>
+              <ul class="quick-links">
+                <li><a href="learnit.html">Tutorial Map</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>            
+              </ul>
+            </nav>
+          </div>
+          <div class="span3">
+            <h4><i class="icon-road icon-white"></i> Example Maps</h4>
+            <nav>
+              <ul class="quick-links">
+                <li><a href="cnriit.html">CNR - IIT Map</a></li>
+                <li><a href="invpla.html">An Invented Place</a></li>
+                <li><a href="labirint.html">The Labyrinth</a></li>        
+              </ul>
+            </nav>
+          </div>
+          <div class="span3">
+            <h4>Get in touch</h4>
+            <div class="social-icons-row">
+              <a href="https://www.facebook.com/naspo88"><i class="icon-facebook"></i></a>
+              <a href="http://www.linkedin.com/profile/view?id=188007546"><i class="icon-linkedin"></i></a>
+              <a href="https://plus.google.com/104684694503272664214/"><i class="icon-google-plus"></i></a>                                         
+            </div>
+          </div>      
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="container">
+        <div class="span5">
+          <p>
+            &copy; 2013-3000 Roberto Minghi, All Rights Reserved.
+          </p>
+        </div>
+        <div class="span5">
+          <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+              <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Valido!" />
+            </a>
+            <a href="http://validator.w3.org/#validate_by_uri">
+              <img style="border:0;width:88px;height:31px" src="img/w3c-valid-html5.png" alt="HTML5 Valido!" />
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- End: FOOTER -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/boot-business.js"></script>
+    <!-- For modifiy the svg image using that exstention -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </body>
+</html>

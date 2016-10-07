@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bootbusiness | Short description about company">
+    <meta name="author" content="Your name">
+    <title>Area 2.0 | Tutorial map</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap responsive -->
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- Font awesome - iconic font with IE7 support --> 
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome-ie7.css" rel="stylesheet">
+    <!-- Bootbusiness theme -->
+    <link href="css/boot-business.css" rel="stylesheet">
+    <!-- My css for personal style -->
+    <link type="text/css" href="css/mystyle.css" rel="stylesheet"/>
+    <!-- Jquary -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <!-- Taffy.js used for create a js database-->
+    <script src="js/taffy.js" type="text/javascript"></script>
+    <!-- Manage all function of admin.html -->
+    <script src="js/admin3.js" type="text/javascript"></script>
+    <!-- Import Dijkstra calculator tool -->
+    <script src="js/graph.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <!-- Start: HEADER -->
+    <header>
+      <!-- Start: Navigation wrapper -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="index.html" class="brand brand-bootbus">Area 2.0</a>
+            <!-- Start: Primary navigation -->
+            <div class="nav-collapse collapse">        
+              <ul class="nav pull-right">
+                <li><a href="project.html">The Project</a></li>
+                <li><a href="learnit.html">Tutorial Map</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Try maps<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="cnriit.html">CNR - IIT Map</a></li>
+                    <li><a href="invpla.html">An Invented Place</a></li>
+                    <li><a href="labirint.html">The Labyrinth</a></li>
+                  </ul>
+                </li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End: Navigation wrapper -->   
+    </header>
+    <!-- End: HEADER -->
+
+    <!-- Start: Main content -->
+    <div class="content">     
+      <div class="container">
+        <!-- Start: Service description -->
+        <article class="article"> 
+          <div class="row bottom-space">
+            <div class="span12">
+              <div class="page-header">
+                <h1>Tutorial map</h1>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="tutorial">
+                <div id="tutorial1">
+                  <h3>Tutorial 1 of 7: </h3>
+                  <p>In this tutorial you will learn to use the tool Area 2.0: The instrument is designed in two parts:</p>
+                  <ul>
+                    <li><b>Create Path (Admin interface):</b> in this section you will make the map by creating a structure composed of circles and lines </li>
+                    <li><b>Get Indications (User interface):</b> in this section you will use what has been created in the map and to find the information you seek</li>
+                  </ul>
+                  <p>If you have never used this tool before follow this tutorial and go to the <a id="totut2">next one</a></p>
+                  <p>Otherwise <a class="closetut">close the tutorial</a></p>
+                </div>
+                <div id="tutorial2">
+                  <h3>Tutorial 2 of 7: </h3>
+                  <p>Before starting to create a map here you can find a definition of graph, node and link:</p>
+                  <ul>
+                    <li><b>Graph:</b> a structure represented by a diagram consisting of points (nodes) joined by lines (links)</li>
+                    <li>
+                      <b>Node:</b> is the base of the structure graph of the map, each node created will be depicted as a circle and will indicate a point on the map where there is a possible destination, an intersection between more than one aisle or a point of interest.
+                    </li>
+                    <li><b>Links:</b> are the possible ways that you can deal with, and are represented by a line, they must be used to indicate that there is a passage from one node to another.</li>
+                  </ul>
+                  <p>If you want to know how to create a node, go to the <a id="totut3">next tutorial</a></p>
+                  <p>Otherwise <a class="closetut">close the tutorial</a></p>
+                </div>
+                <div id="tutorial3">
+                  <h3>Tutorial 3 of 7: </h3>
+                  <p>Let's try to create a point of interest in the map.</p>
+                  <p>Follow the steps below:</p>
+                  <ul>
+                    <li id="p1t3">Click on the "Create paths (Admin Interface)" button.</li>
+                    <li id="p2t3">Click on the "Manage Nodes" button.</li>
+                    <li id="p3t3">Click on the "Create new node" button.</li>
+                    <li id="p4t3">Drag the red circle somewhere in the map, add the label and save by clicking "Save Node" button.</li>
+                    <li id="p5t3">Congratulations you have created a new node! To find out how to modify it go to the <a id="totut4">next tutorial</a><br>
+                      Otherwise <a class="closetut">close the tutorial</a></li>
+                  </ul>
+                </div>
+                <div id="tutorial4">
+                  <h3>Tutorial 4 of 7: </h3>
+                  <p>In this tutorial, we will learn how to edit a node already created and will create more new nodes.</p>
+                  <p>Follow the steps below:</p>
+                  <ul>
+                    <li id="p1t4">Click on the "Manage nodes" button.</li>
+                    <li id="p2t4">Click on the "Modify the node" button.</li>
+                    <li id="p3t4">Click on the green circle and when it becomes red drag it in an another position. Then save by clicking "Save node" button.</li>
+                    <li id="p4t4">Well, now you know how to edit nodes. From the same menu you can also delete them. Now let's see if you learned it: create at least three other nodes. <small><a id="prevtut">I don't remember how to create a node</a></small>
+                      <div id="remembernode">
+                        <ul>
+                          <li>Click on the "Manage Nodes" button.</li>
+                          <li>Click on the "Create New node" button.</li>
+                          <li>Drag the red circle somewhere in the map, add the label and save by clicking "Save node" button.</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li id="p5t4">Congratulations you have completed this tutorial! To find out how to create links go to the <a id="totut5">next tutorial</a><br>
+                      Otherwise <a class="closetut">close the tutorial</a></li>
+                  </ul>
+                </div>
+                <div id="tutorial5">
+                  <h3>Tutorial 5 of 7: </h3>
+                  <p>In this tutorial, we will learn how to create paths that final users will use. By connecting two nodes together you will create a possible path. Let's create some.</p>
+                  <p>Follow the steps below:</p>
+                  <ul>
+                    <li id="p1t5">Click on the "Manage Links" button.</li>
+                    <li id="p2t5">Click on the "Create new link" button.</li>
+                    <li id="p3t5">Click on the "Select the A node" button. And click to the first node (colored in green) that you want to connect.</li>
+                    <li id="p4t5">Click on the "Select the B node" button. And click to the second node (colored in green) that you want to connect.</li>
+                    <li id="p5t5">Click on the "Calculate length" button.</li>
+                    <li id="p6t5">Now you have create your first link, save it clicking on "Save Link" button.</li>
+                    <li id="p7t5">Very good! Now the final user can use this path for going between this two points. Finish the map by connecting the others nodes and create another four links. </li>
+                    <li id="p8t5">Excelent! Now you have created a complete map! Before using it let's see how to delete a link. Go to the <a id="totut6">next tutorial</a><br>
+                      Otherwise <a class="closetut">close the tutorial</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="tutorial6">
+                <h3>Tutorial 6 of 7: </h3>
+                <p>With this tool it is possible to delete paths positioned in error, for example those that pass over a wall. With this tutorial we will see how to do it.</p>
+                <p>Follow the steps below:</p>
+                <ul>
+                    <li id="p1t6">Click on the "Manage Links" button.</li>
+                    <li id="p2t6">Click on the "Delete a link" button.</li>
+                    <li id="p3t6">Click on one of the green lines that you have created. When it becomes red delete it by clicking the "Delete Link" button.</li>
+                    <li id="p4t6">Excelent! Now you know how to delete a link! Now that you know everything about creating a map with Area 2.0 tool. Create one and when you are satisfied about your creation let's look how your final user will use it. Go to the <a id="totut7">last tutorial</a><br>
+                      Otherwise <a class="closetut">close the tutorial</a>
+                    </li>
+                    </li>
+                  </ul>
+              </div>
+              <div id="tutorial7">
+                <h3>Tutorial 7 of 7: </h3>
+                <p>In the last tutorial of this mini-course we will see how you can use the map, that we have created so far, to find the shortest paths to move in the building. Let's see how to do it.</p>
+                <p>Follow the steps below:</p>
+                <ul>
+                    <li id="p1t7">Click on the "Back" button. To return to the selection of the interfaces.</li>
+                    <li id="p2t7">Click on the "Get indications (User Interface)" button.</li>
+                    <li id="p3t7">Click on the "Select the starting node" button. When circles become green, select the starting point of the path that you want to calculate. </li>
+                    <li id="p4t7">Click on the "Select the ending node" button. When circles become green, select the point that you want to achieve with the path. </li>
+                    <li id="p5t7">Click on the "Calculate Path" button to display in red the shortest path between the points you've chosen. </li>
+                    <li id="p6t7">Excelent! Now you know how to use the area 2.0 to its maximum potential (temporary), you can create any map you need within the site, to create new ones, please contact me through the contact us page. R.<br>
+                      <a class="closetut">exit form tutorial.</a><br>
+                      If you want to do the tutorial another time simply press F5 and reload the page.
+                    </li>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+            <hr>
+            <div class="center-align">
+              <div class="span4">
+                <div id="adminDiv">
+                  <div id="SelInterface">
+                    <h3>Select the interface that you want to use</h3>
+                    <hr/>
+                    <h4><small>Through the admin interface menu you can add more information to the map about the points to reach, turns and junctions (create nodes and links).</small></h4>
+                    <p>
+                      <input id="admininterface" class="btn btn-large btn-block btn-primary" type="button" value="Create paths (Admin Interface)" />
+                    </p>
+                    <h4><small>Through the user interface menu you can set a starting and a final point of your destination, and get the best route.</small></h4>
+                    <p>
+                      <input id="userinterface" class="btn btn-large btn-block btn-primary" type="button" value="Get indications (User Interface)" />
+                    </p>
+                    <hr>
+                    <h4><small>Through the button below you go back to the home page.</small></h4>
+                    <p>
+                      <a href="index.html" class="btn btn-large btn-block btn-primary">Back to Home Page</a>
+                    </p>
+                  </div>
+                  <div id="create">
+                    <h3>Create paths (Admin Interface)</h3>
+                    <hr/>
+                    <h4><small>By clicking the button below you will enter the menu that allows you creating nodes.</small></h4>
+                    <p>
+                      <input id="node" class="btn btn-large btn-block btn-primary" type="button" value="Manage nodes" />
+                    </p>
+                    <h4><small>By clicking the button below you will enter the menu that allows you creating links.</small></h4>
+                    <p>
+                      <input id="arch" class="btn btn-large btn-block btn-primary" type="button" value="Manage links" />
+                    </p>
+                    <h4><small>By clicking the button below you will be taken back to interface option menu.</small></h4>
+                    <p>
+                      <input id="choiseinterface" class="btn btn-large btn-block btn-primary" type="button" value="Back" />
+                    </p>
+                  </div>
+                  <div id="menagenode">
+                    <h3>Manage Nodes</h3>
+                    <hr>
+                    <h4><small>For creating a node click the button below. The nodes represent all the created points in the structure where is a change of direction.</small></h4>
+                    <p>
+                      <input id="newnode" class="btn btn-large btn-block btn-primary" type="button" value="Create new node" />
+                    </p>
+                    <h4><small>Nodes badly placed can be changed by clicking the button below.</small></h4>
+                    <p>
+                      <input id="modnode" class="btn btn-large btn-block btn-primary" type="button" value="Modify the node" />
+                    </p>
+                    <h4><small>By clicking the button below you will be taken back to admin interface.</small></h4>
+                    <p>
+                      <input id="BackToGraphN" class="btn btn-large btn-block btn-primary" type="button" value="Back" />
+                    </p>
+                  </div>
+                  <div id="createnode">
+                    <h3>Create new node</h3>
+                    <hr>
+                    <h4><small>Drag the red node in a position desired and then save it.</small></h4>
+                    <form id="newNodeForm" name="newNodeForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="assignedId" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord X:</b></label>
+                        <div class="controls">
+                          <input id="x" type="text" name="cordx" maxlength="4" value="50" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord Y:</b></label>
+                        <div class="controls">
+                          <input id="y" type="text" name="cordy" maxlength="4" value="40" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Label name:</b></label>
+                        <div class="controls">
+                          <input id="label" type="text" name="label" maxlength="5" value="XXXXX"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="note" name="note" rows="3" cols="50" maxlength="200" ></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="savenode" class="btn" type="button" value="Save node"/>
+                      </div>
+                      <div class="control-group">
+                        <input id="goBackNewNode" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="modifynode">
+                    <h3>Modify the node</h3>
+                    <hr>
+                    <h4><small>First select the node wanted and then you can modify it.</small></h4>
+                    <form id="modNodeForm" name="modNodeForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="assignedIdOnMod" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord X:</b></label>
+                        <div class="controls">
+                          <input id="xOnMod" type="text" name="cordx2" maxlength="4" value="" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Coord Y:</b></label>
+                        <div class="controls">
+                          <input id="yOnMod" type="text" name="cordy" maxlength="4" value="" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Label name:</b></label>
+                        <div class="controls">
+                          <input id="labelOnMod" type="text" name="label" maxlength="5" value=""/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="noteOnMod" name="note" rows="3" cols="50" maxlength="200" ></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="modifySelNode" class="btn" type="button" value="Save node" />
+                        <input id="deleteSelNode" class="btn" type="button" value="Delete node" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBack" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="menagearch">
+                    <h3>Manage Links</h3>
+                    <hr>
+                    <h4><small>For creating a link click the button below. The links connect all the nodes created in the structure.</small></h4>
+                    <p>
+                      <input id="newarch" class="btn btn-large btn-block btn-primary" type="button" value="Create new link" />
+                    </p>
+                    <h4><small>The link of badly connected nodes can be removed by clicking the button below.</small></h4>
+                    <p>
+                      <input id="modarch" class="btn btn-large btn-block btn-primary" type="button" value="Delete a link" />
+                    </p>
+                    <h4><small>By clicking the button below you will be taken back to admin interface.</small></h4>
+                    <p>
+                      <input id="BackToGraphA" class="btn btn-large btn-block btn-primary" type="button" value="Back" />
+                    </p>
+                  </div>
+                  <div id="addingArch">
+                    <h3>Create new link</h3>
+                    <hr>
+                    <h4>
+                      <small>
+                        Pressing the "Select the A node" and "Select the B node" buttons allows selecting the nodes you want to connect. 
+                        After selected the two nodes you have to press the third "Calculate Length" button for calculating the length of the path between these two nodes.
+                        Only when you have done these actions you'll be able to save the link.
+                      </small>
+                    </h4>
+                    <form id="newArchForm" name="newArchForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="archId" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node A: </b></label>
+                        <div class="controls">
+                            <input id="startnode" type="text" name="nodea" maxlength="5" value="No node" readonly />
+                            <input id="selStaNode" type="button" name="selectionA" value="Select the A node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node B: </b></label>
+                        <div class="controls">
+                          <input id="endnode" type="text" name="nodeb" maxlength="5" value="No node" readonly />
+                          <input id="selEndNode" type="button" name="selectionB" value="Select the B node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Length:</b></label>
+                        <div class="controls">
+                          <input id="length" type="text" name="length" maxlength="8" value="Select connected nodes" readonly/>
+                          <input id="calLength" type="button" name="selectionB" value="Calculate length"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="notearchs" name="note" rows="3" cols="50" maxlength="200" ></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="savearch" class="btn" type="button" value="Save Link" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBackNewArch" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="modifyarchs">
+                    <h3>Delete a link</h3>
+                    <hr>
+                    <h4><small>First, click the link you want to delete and after it turned red you can remove it easily.</small></h4>
+                    <form id="modArchForm" name="modArchForm" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Id:</b></label>
+                        <div class="controls">
+                          <input id="archIdOM" type="text" name="assignedId" maxlength="10" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node A: </b></label>
+                        <div class="controls">
+                            <input id="startnodeOM" type="text" name="nodea" maxlength="5" value="No node" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Node B: </b></label>
+                        <div class="controls">
+                          <input id="endnodeOM" type="text" name="nodeb" maxlength="5" value="No node" readonly />
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Length:</b></label>
+                        <div class="controls">
+                          <input id="lengthOM" type="text" name="length" maxlength="8" value="Select connected nodes" readonly/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Note:</b></label>
+                        <div class="controls">
+                          <textarea id="notearchsOM" name="note" rows="3" cols="50" maxlength="200" readonly></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="deleteSelArch" class="btn" type="button" value="Delete Link" />
+                      </div>
+                      <div class="control-group">
+                        <input id="goBackArch" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="UsingMapForm">
+                    <h3>Get indications (User Interface)</h3>
+                    </hr>
+                    <h4>
+                      <small>
+                        Pressing the "Select the starting node" button allows choosing your current location and "Select the ending node" allows choosing your final destination.
+                      </small>
+                    </h4>
+                    <h4>
+                      <small>
+                        After that you have to click on "Calculate Path" button for having the total distance and the path that you have to follow.
+                      </small>
+                    </h4>
+                    <form id="usingMap" name="usingMap" class="form-horizontal">
+                      <div class="control-group">
+                        <label class="control-label"><b>Start Node: </b></label>
+                        <div class="controls">
+                            <input id="USERstartnode" type="text" name="nodea" maxlength="5" value="No node" readonly="true" />
+                            <input id="USERselStaNode" type="button" name="selectionA" value="Select the starting node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>End Node: </b></label>
+                        <div class="controls">
+                          <input id="USERendnode" type="text" name="nodeb" maxlength="5" value="No node" readonly="true" />
+                          <input id="USERselEndNode" type="button" name="selectionB" value="Select the ending node"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <label class="control-label"><b>Length:</b></label>
+                        <div class="controls">
+                          <input id="USERlength" type="text" name="length" maxlength="8" value="Select connected nodes" readonly="true"/>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <input id="calculatePath" class="btn" type="button" value="Calculate Path" />
+                      </div>
+                      <div class="control-group">
+                        <input id="reset" class="btn" type="button" value="Reset" />
+                        <input id="goBackMain" class="btn" type="button" value="Back" />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="span8">
+                <svg
+                 xmlns:dc="http://purl.org/dc/elements/1.1/"
+                 xmlns:cc="http://creativecommons.org/ns#"
+                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                 xmlns:svg="http://www.w3.org/2000/svg"
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 version="1.1"
+                 width="360"
+                 height="360"
+                 id="svg2987">
+                <defs
+                   id="defs2989" />
+                <metadata
+                   id="metadata2992">
+                  <rdf:RDF>
+                    <cc:Work
+                       rdf:about="">
+                      <dc:format>image/svg+xml</dc:format>
+                      <dc:type
+                         rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                      <dc:title></dc:title>
+                    </cc:Work>
+                  </rdf:RDF>
+                </metadata>
+                <g
+                   id="layer1">
+                  <image
+                     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAFrCAIAAABzE4QsAAAAA3NCSVQICAjb4U/gAAAIrklEQVR4
+              nO3dwXXbuhKAYeQdd6GCXgnpJQXcXm4JKYh93IVzHMeRZUEigJnB923kow3pzX8AkuJ8O46jAfT4
+              3+oTAPIRDqDby+vH5XJZex5AfG9XNl7evvr54/uikwES+P8//779basCdBMOoNvL1W/fr0mAbX12
+              BeN6ONq7qyDAnm7cM7FVAboJB9BNOIBuwgF0Ew6gm3AA3YQD6CYcQDfhALoJB9BNOIBuwgF0Ew6g
+              m3AA3YQD6CYcQDfhALoJB9BNOIBuwgF0Ew6g26dvOV/IPEp43tBBBRHDcRzH5XIxkhIeNno0UtCt
+              ynEchkJBWEHD0bQDAosbjqYdEFXocDTtgJCih6NpB8STIBxNOyCYHOFo2gGRpAlH0w4II1M4mnZA
+              DMnC0bQDAsgXjqYdsFrKcDTtgKWyhqNpB6yTOBxNO2CR3OFo2gErpA9H0w6YrkI4mnbAXEXC0bQD
+              JqoTjqYdMMvwcEx+87B2wAQzVhzaAcXMCMfPH9+1AyqZdI1DO6CSeRdHtQPKmHpXRTughtm3Y7UD
+              CljwHId2QHZrHgDTDkht2ZOj2gF5rXzkXDsgqcW/VdEOyGj9j9y0A9JZH46mHZBNiHA07YBUooSj
+              aQfkESgcTTsgiVjhaNoBGYQLR9MOCC9iOJp2QGxBw9G0AwKLG46mHRBV6HA07YCQooejaQfEkyAc
+              TTsgmBzhaNoBkaQJR9MOCCNTOJp2QAzJwtG0AwLIF46mHbBaynA07YClsoajaQeskzgcTTtgkdzh
+              aNoBK6QPR9MOmK5COJp2wFxFwtG0AyaqE46mHTBLqXA07YApqoWjaQeMVzAcTTtgsJrhaNoBI5UN
+              R9MOGKZyOJp2wBjFw9G0AwaoH46mHXC2LcLRtANOtUs4mnbAeTYKR9MOOMle4WjaAWfYLhxtRTug
+              mB3D0aa3w6KDYjYNR9MOeMK+4WjaAY/aOhxNO+Ahu4ejaQf0E47WtAM6Cccv2gH3E47ftAPuJBx/
+              0A64h3B8pB3wJeG4QjvgNuG4TjvgBuH4lHbAZ4TjFu2Aq4TjC9oBfxOOr2kHfCAcd9EOeE847qUd
+              8EY4OmgHvBKOPtoBTTgeoB0gHI/QDjYnHA/SDnYmHI/TDrYlHE/RDvYkHM/SDjYkHCfQDnYjHOfQ
+              DrYiHKfRDvYhHGfSDjYhHCfTDnYgHOfTDsoTjiG0g9qEYxTtoDDhGEg7qEo4xtIOShKO4bSDeoRj
+              Bu2gGOGYRDuoRDjm0Q7KEI6ptIMahGM27aAA4VhAO8hOONbQDlITjmW0g7yEYyXtICnhWEw7yEg4
+              1tMO0hGOELSDXIQjCu0gEeEIRDvIQjhi0Q5SEI5wtIP4hCMi7SA44QhKO4hMOOLSDsISjtC0g5iE
+              IzrtICDhSEA7iEY4ctAOQhGONLSDOIQjE+0gCOFIRjuIQDjy0Q6WE46UtIO1hCMr7WAh4UhMO1hF
+              OHLTDpYQjvS0g/mEowLtYDLhKEI7mEk46tAOphGOUrSDOYSjGu1gAuEoSDsYTThq0g6GEo6ytINx
+              hKMy7WAQ4ShOOxhBOOrTDk4nHFvQDs4lHLvQDk4kHBvRDs4iHHvRDk4hHNvRDp4nHDvSDp4kHJvS
+              Dp4hHPt6bce0fGhHJS+rT4CVfv743lq7XC7HcUw43HEcl8vl9aCkZsXB1G2LdUcNwkFr2kEn4eAX
+              7eB+wsFv2sGdhIM/aAf3EA4+0g6+JBxcoR3cJhxcpx3cIBx8Sjv4jHBwi3ZwlXDwBe3gb8LB17SD
+              D4SDu2gH7wkH99IO3ggHHbSDV8JBH+2gCQcP0A6Eg0dox+aEgwdpx86Eg8dpx7aEg6dox56Eg2dp
+              x4aEgxNox26Eg3Nox1aEg9Noxz6EgzNpxyaEg5Npxw6Eg/NpR3nCwRDaUZtwMIp2FCYcDKQdVQkH
+              Y2lHScLBcNpRj3Awg3YUIxxMoh2VCAfzaEcZwsFU2lGDcDCbdhQgHCygHdkJB2toR2rCwTLakZdw
+              sJJ2JCUcLKYdGQkH62lHOsJBCNqRi3AQhXYkIhwEoh1ZCAexaEcKwkE42hGfcBCRdgQnHAQ1sx30
+              Eg7imtYOi45ewkFo2hGTcBCddgQkHCSgHdEIBzloRyjCQRraEYdwkIl2BCEcJKMdEQgH+WjHcsJB
+              StqxlnCQlXYsJBwkph2rCAe5accSwkF62jGfcFCBdkwmHBShHTMJB3VoxzTCQSnaMYdwUI12TCAc
+              FKQdowkHNWnHUMJBWdoxjnBQmXYMIhwUpx0jCAf1acfphIMtaMe5hINdaMeJhIONaMdZhIO9aMcp
+              hIPtaMfzhIMdaceThINNacczhIN9acfDhIOtacdjhIPdaccDhAO0o5twQGva0Uk44BftuJ9wwG/a
+              cSfhgD9oxz2EAz7Sji8JB1yhHbcJB1ynHTcIB3xKOz4jHHCLdlwlHPAF7fibcMDXtOMD4YC7aMd7
+              wgH30o43wgEdtOOVcEAf7WjCAQ/QDuGAR2zeDuGAB+3cDuGAx23bDuGAp+zZDuGAZ23YDuGAE+zW
+              DuGAc2zVDuGA0+zTDuGAM23SDuGAk+3QDuGA85Vvh3DAELXbIRwwSuF2CAcMVLUdwgFjlWyHcMBw
+              9drxMuEYwGs7juMYfaDjOCZEyooDJpm57hh9COGAecq0QzhgqmntGEo4YLYC7RAOWCB7O4QD1kjd
+              DuGAZfK2QzhgpaTtEA5YLGM7hAPWS9cO4YAQcrVDOCCKRO0QDggkSzuEA2JJ0Q7hgHDit0M4IKLg
+              7RAOCCpyO2a8AWz5nEvIa857w3oND0fA/xl4kq0K0E04gG7CAXQTDqCbcADdhAPoJhxAN+EAugkH
+              0E04gG7CAXQTDqCbcADdhAPoJhxAN+EAugkH0E04gG7CAXQTDqCbcADdhAPo9ul4hLCTYIDlrofj
+              54/vk88DSMRWBegmHEA34QC6CQfQ7dvrUGj3UIAvvc2Q/2aaPNDLVgXoJhxAN+EAuv0H8H2xjJhn
+              PncAAAAASUVORK5CYII=
+              "
+                     x="0"
+                     y="0"
+                     width="360"
+                     height="363"
+                     id="image3003" />
+                </g>
+              </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- End: Service description -->
+      </div>
+    </div>
+    </div>
+    <!-- End: Main content -->
+
+    <!-- Start: FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <h4><i class="icon-beaker icon-white"></i> About</h4>
+            <nav>
+              <ul class="quick-links">
+                <li><a href="project.html">The Project</a></li>
+              </ul>
+            </nav>          
+          </div>
+          <div class="span3">
+            <h4><i class="icon-thumbs-up icon-white"></i> Support</h4>
+            <nav>
+              <ul class="quick-links">
+                <li><a href="learnit.html">Tutorial Map</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>            
+              </ul>
+            </nav>
+          </div>
+          <div class="span3">
+            <h4><i class="icon-road icon-white"></i> Example Maps</h4>
+            <nav>
+              <ul class="quick-links">
+                <li><a href="cnriit.html">CNR - IIT Map</a></li>
+                <li><a href="invpla.html">An Invented Place</a></li>
+                <li><a href="labirint.html">The Labyrinth</a></li>        
+              </ul>
+            </nav>
+          </div>
+          <div class="span3">
+            <h4>Get in touch</h4>
+            <div class="social-icons-row">
+              <a href="https://www.facebook.com/naspo88"><i class="icon-facebook"></i></a>
+              <a href="http://www.linkedin.com/profile/view?id=188007546"><i class="icon-linkedin"></i></a>
+              <a href="https://plus.google.com/104684694503272664214/"><i class="icon-google-plus"></i></a>                                         
+            </div>
+          </div>      
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="container">
+        <div class="span5">
+          <p>
+            &copy; 2013-3000 Roberto Minghi, All Rights Reserved.
+          </p>
+        </div>
+        <div class="span5">
+          <p>
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+              <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="CSS Valido!" />
+            </a>
+            <a href="http://validator.w3.org/#validate_by_uri">
+              <img style="border:0;width:88px;height:31px" src="img/w3c-valid-html5.png" alt="HTML5 Valido!" />
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- End: FOOTER -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/boot-business.js"></script>
+    <!-- For modifiy the svg image using that exstention -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </body>
+</html>
